@@ -1,0 +1,136 @@
+[
+  {
+    "date": "2026-08-18",
+    "day_of_week": "Tuesday",
+    "phase": "Taper",
+    "week": 1,
+    "workouts": [
+      "taper_run_easy"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-19",
+    "day_of_week": "Wednesday",
+    "phase": "Taper",
+    "week": 1,
+    "workouts": [
+      "taper_swim_easy"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-20",
+    "day_of_week": "Thursday",
+    "phase": "Taper",
+    "week": 1,
+    "workouts": [
+      "taper_bike_easy"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-21",
+    "day_of_week": "Friday",
+    "phase": "Taper",
+    "week": 1,
+    "workouts": [
+      "swim_endurance_optional"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-22",
+    "day_of_week": "Saturday",
+    "phase": "Taper",
+    "week": 1,
+    "workouts": [
+      "Z2_bike_short",
+      "Z2_run_short"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-23",
+    "day_of_week": "Sunday",
+    "phase": "Taper",
+    "week": 1,
+    "workouts": [
+      "Z2_run_short"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-24",
+    "day_of_week": "Monday",
+    "phase": "Taper",
+    "week": 1,
+    "workouts": [
+      "taper_swim_easy"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-25",
+    "day_of_week": "Tuesday",
+    "phase": "Taper",
+    "week": 1,
+    "workouts": [
+      "swim_racepace"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-26",
+    "day_of_week": "Wednesday",
+    "phase": "Taper",
+    "week": 1,
+    "workouts": [
+      "taper_swim_easy"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-27",
+    "day_of_week": "Thursday",
+    "phase": "Taper",
+    "week": 1,
+    "workouts": [
+      "taper_bike_easy"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-28",
+    "day_of_week": "Friday",
+    "phase": "Taper",
+    "week": 1,
+    "workouts": [
+      "swim_endurance_optional"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-29",
+    "day_of_week": "Saturday",
+    "phase": "Taper",
+    "week": 1,
+    "workouts": [
+      "Z2_bike_short",
+      "Z2_run_short"
+    ],
+    "notes": "",
+    "override": null
+  }
+]

@@ -1,0 +1,387 @@
+[
+  {
+    "date": "2026-04-14",
+    "day_of_week": "Tuesday",
+    "phase": "3B MTB Build",
+    "week": 1,
+    "workouts": [
+      "Z2_run"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-04-15",
+    "day_of_week": "Wednesday",
+    "phase": "3B MTB Build",
+    "week": 1,
+    "workouts": [
+      "VO2_bike"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-04-16",
+    "day_of_week": "Thursday",
+    "phase": "3B MTB Build",
+    "week": 1,
+    "workouts": [
+      "workout_B"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-04-17",
+    "day_of_week": "Friday",
+    "phase": "3B MTB Build",
+    "week": 1,
+    "workouts": [
+      "Z2_bike"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-04-18",
+    "day_of_week": "Saturday",
+    "phase": "3B MTB Build",
+    "week": 1,
+    "workouts": [
+      "mtb_build"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-04-19",
+    "day_of_week": "Sunday",
+    "phase": "3B MTB Build",
+    "week": 1,
+    "workouts": [
+      "Z2_run"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-04-20",
+    "day_of_week": "Monday",
+    "phase": "3B MTB Build",
+    "week": 2,
+    "workouts": [
+      "workout_A"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-04-21",
+    "day_of_week": "Tuesday",
+    "phase": "3B MTB Build",
+    "week": 2,
+    "workouts": [
+      "Z2_run"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-04-22",
+    "day_of_week": "Wednesday",
+    "phase": "3B MTB Build",
+    "week": 2,
+    "workouts": [
+      "VO2_bike"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-04-23",
+    "day_of_week": "Thursday",
+    "phase": "3B MTB Build",
+    "week": 2,
+    "workouts": [
+      "workout_B"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-04-24",
+    "day_of_week": "Friday",
+    "phase": "3B MTB Build",
+    "week": 2,
+    "workouts": [
+      "Z2_bike"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-04-25",
+    "day_of_week": "Saturday",
+    "phase": "3B MTB Build",
+    "week": 2,
+    "workouts": [
+      "mtb_build"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-04-26",
+    "day_of_week": "Sunday",
+    "phase": "3B MTB Build",
+    "week": 2,
+    "workouts": [
+      "Z2_run"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-04-27",
+    "day_of_week": "Monday",
+    "phase": "3B MTB Build",
+    "week": 3,
+    "workouts": [
+      "workout_A"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-04-28",
+    "day_of_week": "Tuesday",
+    "phase": "3B MTB Build",
+    "week": 3,
+    "workouts": [
+      "Z2_run"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-04-29",
+    "day_of_week": "Wednesday",
+    "phase": "3B MTB Build",
+    "week": 3,
+    "workouts": [
+      "VO2_bike"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-04-30",
+    "day_of_week": "Thursday",
+    "phase": "3B MTB Build",
+    "week": 3,
+    "workouts": [
+      "workout_B"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-05-01",
+    "day_of_week": "Friday",
+    "phase": "3B MTB Build",
+    "week": 3,
+    "workouts": [
+      "Z2_bike"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-05-02",
+    "day_of_week": "Saturday",
+    "phase": "3B MTB Build",
+    "week": 3,
+    "workouts": [
+      "mtb_build"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-05-03",
+    "day_of_week": "Sunday",
+    "phase": "3B MTB Build",
+    "week": 3,
+    "workouts": [
+      "Z2_run"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-05-04",
+    "day_of_week": "Monday",
+    "phase": "3B MTB Build",
+    "week": 4,
+    "workouts": [
+      "workout_A"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-05-05",
+    "day_of_week": "Tuesday",
+    "phase": "3B MTB Build",
+    "week": 4,
+    "workouts": [
+      "Z2_run"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-05-06",
+    "day_of_week": "Wednesday",
+    "phase": "3B MTB Build",
+    "week": 4,
+    "workouts": [
+      "VO2_bike"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-05-07",
+    "day_of_week": "Thursday",
+    "phase": "3B MTB Build",
+    "week": 4,
+    "workouts": [
+      "workout_B"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-05-08",
+    "day_of_week": "Friday",
+    "phase": "3B MTB Build",
+    "week": 4,
+    "workouts": [
+      "Z2_bike"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-05-09",
+    "day_of_week": "Saturday",
+    "phase": "3B MTB Build",
+    "week": 4,
+    "workouts": [
+      "mtb_build"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-05-10",
+    "day_of_week": "Sunday",
+    "phase": "3B MTB Build",
+    "week": 4,
+    "workouts": [
+      "Z2_run"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-05-11",
+    "day_of_week": "Monday",
+    "phase": "3B MTB Build",
+    "week": 5,
+    "workouts": [
+      "workout_A"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-05-12",
+    "day_of_week": "Tuesday",
+    "phase": "3B MTB Build",
+    "week": 5,
+    "workouts": [
+      "Z2_run"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-05-13",
+    "day_of_week": "Wednesday",
+    "phase": "3B MTB Build",
+    "week": 5,
+    "workouts": [
+      "VO2_bike"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-05-14",
+    "day_of_week": "Thursday",
+    "phase": "3B MTB Build",
+    "week": 5,
+    "workouts": [
+      "workout_B"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-05-15",
+    "day_of_week": "Friday",
+    "phase": "3B MTB Build",
+    "week": 5,
+    "workouts": [
+      "Z2_bike"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-05-16",
+    "day_of_week": "Saturday",
+    "phase": "3B MTB Build",
+    "week": 5,
+    "workouts": [
+      "mtb_build"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-05-17",
+    "day_of_week": "Sunday",
+    "phase": "3B MTB Build",
+    "week": 5,
+    "workouts": [
+      "Z2_run"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-05-18",
+    "day_of_week": "Monday",
+    "phase": "3B MTB Build",
+    "week": 6,
+    "workouts": [
+      "workout_A"
+    ],
+    "notes": "",
+    "override": null
+  }
+]

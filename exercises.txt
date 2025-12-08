@@ -1,0 +1,173 @@
+{
+  "bench": {
+    "name": "Bench Press",
+    "category": "strength",
+    "full_gym": "Barbell bench press",
+    "hotel_gym": "Dumbbell bench press or DB floor press",
+    "no_equipment": "Feet-elevated push-ups",
+    "notes": "Shoulders down and back, slight arch, touch lower chest, keep 1-3 reps in reserve.",
+    "tags": ["push", "chest", "compound"]
+  },
+  "rdl": {
+    "name": "Romanian Deadlift",
+    "category": "strength",
+    "full_gym": "Barbell Romanian deadlift",
+    "hotel_gym": "Dumbbell RDL or Smith RDL",
+    "no_equipment": "Banded hip hinge",
+    "notes": "Soft knees, hinge hips back, flat back, feel hamstring tension, bar close to legs.",
+    "tags": ["hinge", "hamstrings", "posterior_chain"]
+  },
+  "deadlift": {
+    "name": "Deadlift",
+    "category": "strength",
+    "full_gym": "Barbell deadlift from floor",
+    "hotel_gym": "DB deadlift or DB sumo deadlift or Smith deadlift",
+    "no_equipment": "Banded good morning or hip hinge pattern only",
+    "notes": "Bar over mid-foot, brace hard, push the floor away, keep bar close.",
+    "tags": ["hinge", "posterior_chain", "compound"]
+  },
+  "pullup": {
+    "name": "Pull-Up",
+    "category": "strength",
+    "full_gym": "Bodyweight or weighted pull-ups",
+    "hotel_gym": "Assisted pull-up, lat pulldown, or heavy DB row",
+    "no_equipment": "Band lat pulldown anchored in door",
+    "notes": "Pull chest toward bar, drive elbows down, avoid shrugging, full control.",
+    "tags": ["pull", "back", "vertical_pull"]
+  },
+  "incline_press": {
+    "name": "Incline Press",
+    "category": "strength",
+    "full_gym": "Incline dumbbell bench press",
+    "hotel_gym": "Any incline DB press variation or Smith incline press",
+    "no_equipment": "Decline push-ups or feet-elevated push-ups",
+    "notes": "Press up and slightly toward midline, control the bottom position.",
+    "tags": ["push", "chest", "upper_chest"]
+  },
+  "laterals": {
+    "name": "Lateral Raise",
+    "category": "strength",
+    "full_gym": "DB lateral raises",
+    "hotel_gym": "Plate raises or cable lateral raises",
+    "no_equipment": "Band lateral raises",
+    "notes": "Soft elbows, raise to shoulder height, lead with elbows.",
+    "tags": ["shoulders", "isolation"]
+  },
+  "rear_delts": {
+    "name": "Rear Delt Fly",
+    "category": "strength",
+    "full_gym": "DB rear delt fly or reverse pec deck",
+    "hotel_gym": "Incline bench reverse fly with DBs",
+    "no_equipment": "Band pull-aparts",
+    "notes": "Hinge slightly, pull hands out and back, avoid shrugging.",
+    "tags": ["shoulders", "rear_delts", "upper_back"]
+  },
+  "triceps_ext": {
+    "name": "Triceps Extension",
+    "category": "strength",
+    "full_gym": "Cable triceps pushdown",
+    "hotel_gym": "DB overhead triceps extension",
+    "no_equipment": "Close-grip push-ups or band pushdowns",
+    "notes": "Keep elbows pinned, extend fully without swinging shoulders.",
+    "tags": ["triceps", "isolation"]
+  },
+  "hammer_curl": {
+    "name": "Hammer Curl",
+    "category": "strength",
+    "full_gym": "DB hammer curl",
+    "hotel_gym": "Cable rope hammer curl",
+    "no_equipment": "Band hammer curl",
+    "notes": "Neutral grip, elbows near sides, control the lowering.",
+    "tags": ["biceps", "forearms", "isolation"]
+  },
+  "row": {
+    "name": "Chest-Supported Row",
+    "category": "strength",
+    "full_gym": "Chest-supported machine or incline bench DB row",
+    "hotel_gym": "Incline bench DB row",
+    "no_equipment": "Band row anchored at chest height",
+    "notes": "Pull elbows toward hips, squeeze shoulder blades.",
+    "tags": ["back", "horizontal_pull"]
+  },
+  "shoulder_press": {
+    "name": "Shoulder Press",
+    "category": "strength",
+    "full_gym": "Seated DB shoulder press",
+    "hotel_gym": "Standing DB press or machine shoulder press",
+    "no_equipment": "Pike push-ups",
+    "notes": "Press slightly in front of head, avoid flaring ribs.",
+    "tags": ["shoulders", "push", "compound"]
+  },
+  "lat_pulldown": {
+    "name": "Lat Pulldown",
+    "category": "strength",
+    "full_gym": "Cable lat pulldown",
+    "hotel_gym": "Any lat pulldown station",
+    "no_equipment": "Band pulldowns anchored overhead",
+    "notes": "Lean slightly back, pull bar to upper chest, drive elbows down.",
+    "tags": ["back", "vertical_pull"]
+  },
+  "curl": {
+    "name": "Curl",
+    "category": "strength",
+    "full_gym": "EZ-bar curl or DB curl",
+    "hotel_gym": "Cable curl or DB curl",
+    "no_equipment": "Band curl",
+    "notes": "Keep elbows close to sides, full range, control the eccentric.",
+    "tags": ["biceps", "isolation"]
+  },
+  "overhead_triceps": {
+    "name": "Overhead Triceps Extension",
+    "category": "strength",
+    "full_gym": "Cable or DB overhead triceps extension",
+    "hotel_gym": "Single DB overhead extension",
+    "no_equipment": "Band overhead extension",
+    "notes": "Keep elbows pointed forward, avoid arching the low back.",
+    "tags": ["triceps", "isolation"]
+  },
+  "stepups": {
+    "name": "Step-Ups",
+    "category": "strength",
+    "full_gym": "Weighted step-ups on 8-16 inch box",
+    "hotel_gym": "DB step-ups on hotel bench or sturdy surface",
+    "no_equipment": "Bodyweight step-ups",
+    "notes": "Drive through whole foot, control the lowering, avoid pushing off the back leg too much.",
+    "tags": ["legs", "glutes", "quads"]
+  },
+  "core_plank": {
+    "name": "Plank",
+    "category": "core",
+    "full_gym": "Standard front plank",
+    "hotel_gym": "Same on floor or mat",
+    "no_equipment": "Same",
+    "notes": "Brace abs, glutes tight, avoid sagging hips.",
+    "tags": ["core", "isometric"]
+  },
+  "core_side_plank": {
+    "name": "Side Plank",
+    "category": "core",
+    "full_gym": "Side plank on elbow",
+    "hotel_gym": "Same on mat or floor",
+    "no_equipment": "Same",
+    "notes": "Straight line from ankle to shoulder, avoid dropping hips.",
+    "tags": ["core", "obliques", "isometric"]
+  },
+  "core_deadbug": {
+    "name": "Dead Bug",
+    "category": "core",
+    "full_gym": "Bodyweight dead bug",
+    "hotel_gym": "Same",
+    "no_equipment": "Same",
+    "notes": "Low back pressed into floor, move opposite arm and leg slowly.",
+    "tags": ["core", "control"]
+  },
+  "core_hanging_knee": {
+    "name": "Hanging Knee Raise",
+    "category": "core",
+    "full_gym": "Hanging knee raise from pull-up bar",
+    "hotel_gym": "Captains chair leg raise if available",
+    "no_equipment": "Lying reverse crunch",
+    "notes": "Avoid swinging, control the up and down motion.",
+    "tags": ["core", "hip_flexors", "abs"]
+  }
+}

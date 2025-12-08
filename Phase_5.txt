@@ -1,0 +1,387 @@
+[
+  {
+    "date": "2026-07-14",
+    "day_of_week": "Tuesday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 1,
+    "workouts": [
+      "threshold_run"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-07-15",
+    "day_of_week": "Wednesday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 1,
+    "workouts": [
+      "swim_racepace"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-07-16",
+    "day_of_week": "Thursday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 1,
+    "workouts": [
+      "threshold_bike"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-07-17",
+    "day_of_week": "Friday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 1,
+    "workouts": [
+      "swim_endurance_optional"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-07-18",
+    "day_of_week": "Saturday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 1,
+    "workouts": [
+      "brick_race"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-07-19",
+    "day_of_week": "Sunday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 1,
+    "workouts": [
+      "Z2_run_long"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-07-20",
+    "day_of_week": "Monday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 2,
+    "workouts": [
+      "workout_A"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-07-21",
+    "day_of_week": "Tuesday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 2,
+    "workouts": [
+      "threshold_run"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-07-22",
+    "day_of_week": "Wednesday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 2,
+    "workouts": [
+      "swim_racepace"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-07-23",
+    "day_of_week": "Thursday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 2,
+    "workouts": [
+      "threshold_bike"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-07-24",
+    "day_of_week": "Friday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 2,
+    "workouts": [
+      "swim_endurance_optional"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-07-25",
+    "day_of_week": "Saturday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 2,
+    "workouts": [
+      "brick_race"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-07-26",
+    "day_of_week": "Sunday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 2,
+    "workouts": [
+      "Z2_run_long"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-07-27",
+    "day_of_week": "Monday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 3,
+    "workouts": [
+      "workout_A"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-07-28",
+    "day_of_week": "Tuesday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 3,
+    "workouts": [
+      "threshold_run"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-07-29",
+    "day_of_week": "Wednesday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 3,
+    "workouts": [
+      "swim_racepace"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-07-30",
+    "day_of_week": "Thursday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 3,
+    "workouts": [
+      "threshold_bike"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-07-31",
+    "day_of_week": "Friday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 3,
+    "workouts": [
+      "swim_endurance_optional"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-01",
+    "day_of_week": "Saturday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 3,
+    "workouts": [
+      "brick_race"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-02",
+    "day_of_week": "Sunday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 3,
+    "workouts": [
+      "Z2_run_long"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-03",
+    "day_of_week": "Monday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 4,
+    "workouts": [
+      "workout_A"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-04",
+    "day_of_week": "Tuesday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 4,
+    "workouts": [
+      "threshold_run"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-05",
+    "day_of_week": "Wednesday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 4,
+    "workouts": [
+      "swim_racepace"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-06",
+    "day_of_week": "Thursday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 4,
+    "workouts": [
+      "threshold_bike"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-07",
+    "day_of_week": "Friday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 4,
+    "workouts": [
+      "swim_endurance_optional"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-08",
+    "day_of_week": "Saturday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 4,
+    "workouts": [
+      "brick_race"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-09",
+    "day_of_week": "Sunday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 4,
+    "workouts": [
+      "Z2_run_long"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-10",
+    "day_of_week": "Monday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 5,
+    "workouts": [
+      "workout_A"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-11",
+    "day_of_week": "Tuesday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 5,
+    "workouts": [
+      "threshold_run"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-12",
+    "day_of_week": "Wednesday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 5,
+    "workouts": [
+      "swim_racepace"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-13",
+    "day_of_week": "Thursday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 5,
+    "workouts": [
+      "threshold_bike"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-14",
+    "day_of_week": "Friday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 5,
+    "workouts": [
+      "swim_endurance_optional"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-15",
+    "day_of_week": "Saturday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 5,
+    "workouts": [
+      "brick_race"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-16",
+    "day_of_week": "Sunday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 5,
+    "workouts": [
+      "Z2_run_long"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-08-17",
+    "day_of_week": "Monday",
+    "phase": "5 Triathlon Peak Build",
+    "week": 6,
+    "workouts": [
+      "workout_A"
+    ],
+    "notes": "",
+    "override": null
+  }
+]

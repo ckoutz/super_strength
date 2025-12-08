@@ -1,0 +1,551 @@
+{
+  "strength": {
+    "workout_A": {
+      "id": "workout_A",
+      "name": "Strength Workout A",
+      "type": "strength",
+      "display_type": "strength_block",
+      "focus": "Upper Push + Posterior Chain",
+      "purpose": "Build hypertrophy and technical skill in bench and RDL without excessive leg fatigue.",
+      "coaching_notes": [
+        "Keep 1\u20133 reps in reserve on main lifts.",
+        "Prioritize controlled tempo, especially on the eccentric.",
+        "If traveling or tired, use DB versions of primary lifts.",
+        "Avoid crushing legs\u2014this workout should support, not ruin, cardio days."
+      ],
+      "primary": [
+        {
+          "exercise_id": "bench",
+          "sets": 4,
+          "reps": "8\u201310",
+          "rpe": "7"
+        },
+        {
+          "exercise_id": "rdl",
+          "sets": 3,
+          "reps": "8\u201310",
+          "rpe": "6\u20137"
+        }
+      ],
+      "accessories": [
+        {
+          "exercise_id": "incline_press",
+          "sets": 3,
+          "reps": "8\u201312",
+          "rpe": "8"
+        },
+        {
+          "exercise_id": "laterals",
+          "sets": 3,
+          "reps": "12\u201315",
+          "rpe": "8"
+        },
+        {
+          "exercise_id": "rear_delts",
+          "sets": 3,
+          "reps": "12\u201315",
+          "rpe": "8"
+        },
+        {
+          "exercise_id": "triceps_ext",
+          "sets": 3,
+          "reps": "12\u201315",
+          "rpe": "8"
+        },
+        {
+          "exercise_id": "hammer_curl",
+          "sets": 3,
+          "reps": "10\u201312",
+          "rpe": "8"
+        }
+      ]
+    },
+    "workout_B": {
+      "id": "workout_B",
+      "name": "Strength Workout B",
+      "type": "strength",
+      "display_type": "strength_block",
+      "focus": "Deadlift + Pull + Shoulders",
+      "purpose": "Develop posterior-chain strength and back/shoulder hypertrophy with manageable fatigue.",
+      "coaching_notes": [
+        "Deadlifts stay submaximal\u2014cap at RPE 7\u20138 in most phases.",
+        "Pull-ups and rows should be strict and controlled.",
+        "Swap to DB or machine deadlifts on travel weeks if needed.",
+        "If lower back is cranky, reduce deadlift sets or use RDLs instead."
+      ],
+      "primary": [
+        {
+          "exercise_id": "deadlift",
+          "sets": 3,
+          "reps": "4\u20136",
+          "rpe": "6\u20137"
+        },
+        {
+          "exercise_id": "pullup",
+          "sets": 4,
+          "reps": "5\u20138",
+          "rpe": "7"
+        }
+      ],
+      "accessories": [
+        {
+          "exercise_id": "row",
+          "sets": 3,
+          "reps": "8\u201312",
+          "rpe": "8"
+        },
+        {
+          "exercise_id": "shoulder_press",
+          "sets": 3,
+          "reps": "8\u201312",
+          "rpe": "8"
+        },
+        {
+          "exercise_id": "lat_pulldown",
+          "sets": 3,
+          "reps": "10\u201312",
+          "rpe": "8"
+        },
+        {
+          "exercise_id": "curl",
+          "sets": 3,
+          "reps": "10\u201312",
+          "rpe": "8"
+        },
+        {
+          "exercise_id": "overhead_triceps",
+          "sets": 3,
+          "reps": "12\u201315",
+          "rpe": "8"
+        }
+      ]
+    }
+  },
+  "run": {
+    "Z2_run": {
+      "id": "Z2_run",
+      "name": "Zone 2 Run",
+      "type": "run",
+      "display_type": "cardio_continuous",
+      "focus": "Aerobic Running",
+      "purpose": "Develop running efficiency and durability with very low stress.",
+      "duration_min": "30\u201345",
+      "intensity": "Zone 2",
+      "instructions": "Run at conversational pace. If HR spikes above Z2, slow to jog or walk. Treadmill or outdoor both fine.",
+      "coaching_notes": [
+        "You should always be able to speak in full sentences.",
+        "Shorten stride and increase cadence if HR drifts up.",
+        "This is base building, not a workout to \u2018prove\u2019 fitness."
+      ]
+    },
+    "Z2_run_long": {
+      "id": "Z2_run_long",
+      "name": "Long Zone 2 Run",
+      "type": "run",
+      "display_type": "cardio_continuous",
+      "focus": "Long-Run Durability",
+      "purpose": "Build long-duration aerobic capacity and mental resilience for triathlon running.",
+      "duration_min": "40\u201360",
+      "intensity": "Zone 2",
+      "instructions": "Run at easy pace the entire time. If fatigue builds, insert short walk breaks but keep moving.",
+      "coaching_notes": [
+        "Fuel lightly before if needed; hydrate during longer runs.",
+        "Keep form relaxed\u2014no grinding or \u2018hero\u2019 pacing.",
+        "If legs are very heavy from bike work, reduce duration by 10\u201315 minutes."
+      ]
+    },
+    "Z2_run_short": {
+      "id": "Z2_run_short",
+      "name": "Short Zone 2 Run",
+      "type": "run",
+      "display_type": "cardio_continuous",
+      "focus": "Shakeout / Brick Short Run",
+      "purpose": "Provide a short, easy neuromuscular stimulus without adding significant fatigue.",
+      "duration_min": 8,
+      "intensity": "Zone 2",
+      "instructions": "Run or jog at easy pace. Used for taper or mini-bricks. Stop while you still feel fresh.",
+      "coaching_notes": [
+        "This should feel almost too easy.",
+        "Think \u2018movement practice\u2019, not training stress."
+      ]
+    },
+    "tempo_run": {
+      "id": "tempo_run",
+      "name": "Tempo Run",
+      "type": "run",
+      "display_type": "cardio_intervals",
+      "focus": "Lactate Threshold",
+      "purpose": "Build controlled speed and efficiency just below threshold.",
+      "duration_min": 45,
+      "intensity": "Tempo (Z3)",
+      "instructions": "10 min Z2 warm-up \u2192 20\u201330 min steady Z3 tempo \u2192 5\u201310 min easy cool-down.",
+      "coaching_notes": [
+        "Should feel \u2018comfortably hard\u2019 but sustainable.",
+        "Breathing is deeper but still under control.",
+        "If pace falls apart, shorten the tempo block rather than forcing it."
+      ]
+    },
+    "threshold_run": {
+      "id": "threshold_run",
+      "name": "Threshold Run",
+      "type": "run",
+      "display_type": "cardio_intervals",
+      "focus": "Run Threshold / Race Pace Ceiling",
+      "purpose": "Increase sustainable hard-pace running and improve lactate clearance for race day.",
+      "intensity": "High (Z4)",
+      "instructions": "10 min easy warm-up \u2192 2\u00d710 min at threshold (Z4) with 3 min easy jog between \u2192 5 min cool-down.",
+      "coaching_notes": [
+        "This is your key sharpening run\u2014focus on relaxed, repeatable effort.",
+        "You should NOT be sprinting; this is steady \u2018hard but controlled\u2019.",
+        "If legs are cooked, reduce to 2\u00d78 min or drop to a tempo run."
+      ]
+    },
+    "taper_run_easy": {
+      "id": "taper_run_easy",
+      "name": "Taper Run (Easy + Strides)",
+      "type": "run",
+      "display_type": "cardio_taper",
+      "focus": "Taper Neuromuscular Sharpness",
+      "purpose": "Maintain running feel and leg pop during taper without adding fatigue.",
+      "duration_min": "15\u201325",
+      "intensity": "Mostly Z2",
+      "instructions": "15\u201320 min easy Z2 jog \u2192 3\u00d720 sec race-pace strides with full walk recoveries \u2192 2\u20133 min easy jog.",
+      "coaching_notes": [
+        "Strides should feel snappy but never maximal.",
+        "If anything hurts or feels off, skip the strides and just jog.",
+        "Better to be under-done than over-done in taper week."
+      ]
+    }
+  },
+  "bike": {
+    "Z2_bike": {
+      "id": "Z2_bike",
+      "name": "Zone 2 Bike",
+      "type": "bike",
+      "display_type": "cardio_continuous",
+      "focus": "Aerobic Base",
+      "purpose": "Improve bike-specific aerobic conditioning with minimal fatigue.",
+      "duration_min": 45,
+      "intensity": "Zone 2",
+      "instructions": "Ride at steady effort, preferably 80\u201390 rpm. Stay below the top of Z2 the entire ride.",
+      "coaching_notes": [
+        "You should be able to talk in full sentences.",
+        "If using a hotel bike, don\u2019t worry about power\u2014just keep RPE easy-moderate.",
+        "If legs are smashed, cut duration to 30 minutes."
+      ]
+    },
+    "Z2_bike_short": {
+      "id": "Z2_bike_short",
+      "name": "Short Zone 2 Bike",
+      "type": "bike",
+      "display_type": "cardio_continuous",
+      "focus": "Taper / Brick Warmup",
+      "purpose": "Provide a short aerobic activation without fatigue, often before a short run.",
+      "duration_min": 15,
+      "intensity": "Zone 2",
+      "instructions": "Spin easily for 10\u201315 min. Keep cadence smooth and avoid any burning in the legs.",
+      "coaching_notes": [
+        "This is a primer, not training stress.",
+        "Get off the bike feeling fresher than when you started."
+      ]
+    },
+    "VO2_bike": {
+      "id": "VO2_bike",
+      "name": "VO2 Bike Intervals",
+      "type": "bike",
+      "display_type": "cardio_intervals",
+      "focus": "High-Intensity Aerobic Power",
+      "purpose": "Increase VO2 max and high-end aerobic power with low orthopedic risk.",
+      "intensity": "VO2 (Z4\u2013Z5)",
+      "instructions": "Warm up 10\u201315 min Z2 \u2192 4\u20135\u00d72 min hard at high cadence (90+ rpm) with 2 min easy spin between \u2192 5\u201310 min cool-down.",
+      "coaching_notes": [
+        "Efforts should be very hard but still smooth\u2014no grinding at low cadence.",
+        "Stop intervals early if form breaks down or knees complain.",
+        "Do not schedule within 24 hours of heavy leg strength work when possible."
+      ]
+    },
+    "tempo_bike": {
+      "id": "tempo_bike",
+      "name": "Tempo Bike",
+      "type": "bike",
+      "display_type": "cardio_intervals",
+      "focus": "Bike Lactate Threshold / Strong Z3",
+      "purpose": "Develop sustained sub-threshold power and triathlon-specific bike durability.",
+      "intensity": "Tempo (Z3)",
+      "instructions": "10 min warm-up \u2192 2\u00d710 min Z3 with 5 min Z2 between \u2192 5\u201310 min cool-down.",
+      "coaching_notes": [
+        "Breathing should be noticeably deeper but controlled.",
+        "Keep upper body relaxed and shoulders down.",
+        "If HR drifts too high, back off 5\u201310 watts or shorten the interval."
+      ]
+    },
+    "threshold_bike": {
+      "id": "threshold_bike",
+      "name": "Threshold Bike",
+      "type": "bike",
+      "display_type": "cardio_intervals",
+      "focus": "Bike Threshold / Race Power",
+      "purpose": "Sharpen bike-specific threshold and prepare for race-pace efforts.",
+      "intensity": "High (Z4)",
+      "instructions": "10 min easy warm-up \u2192 3\u00d710 min at threshold (Z4) with 4 min Z2 recovery between \u2192 5\u201310 min cool-down.",
+      "coaching_notes": [
+        "Hold a stable power or RPE across all intervals.",
+        "You should finish feeling worked but not destroyed.",
+        "If legs are not there, drop to 2\u00d710 or convert to a tempo bike session."
+      ]
+    },
+    "taper_bike_easy": {
+      "id": "taper_bike_easy",
+      "name": "Taper Bike (Easy + Surges)",
+      "type": "bike",
+      "display_type": "cardio_taper",
+      "focus": "Taper Neuromuscular Sharpness (Bike)",
+      "purpose": "Keep bike legs feeling responsive without adding training stress.",
+      "duration_min": "20\u201340",
+      "intensity": "Mostly Z2",
+      "instructions": "Ride 20\u201330 min very easy Z2 \u2192 sprinkle in 3\u00d730 sec race-pace surges with full recovery \u2192 finish with easy spin.",
+      "coaching_notes": [
+        "Surges should feel controlled, never all-out.",
+        "Skip surges entirely if feeling flat, sick, or overly tired.",
+        "Better to underdo than overdo in the taper."
+      ]
+    }
+  },
+  "swim": {
+    "swim_technique": {
+      "id": "swim_technique",
+      "name": "Swim Technique Session",
+      "type": "swim",
+      "display_type": "swim_set",
+      "focus": "Technique & Efficiency",
+      "purpose": "Improve stroke mechanics, breathing, and feel for the water.",
+      "instructions": "Example: 4\u00d750 kickboard, 4\u00d750 pull buoy, 4\u00d750 slow freestyle with long strokes. Rest as needed.",
+      "coaching_notes": [
+        "Prioritize relaxed exhale in the water and smooth rotation.",
+        "Long strokes, no rushing. Technique first, speed second."
+      ]
+    },
+    "swim_endurance": {
+      "id": "swim_endurance",
+      "name": "Swim Endurance",
+      "type": "swim",
+      "display_type": "swim_set",
+      "focus": "Aerobic Swim Volume",
+      "purpose": "Build sustainable aerobic swim capacity for triathlon.",
+      "instructions": "Continuous freestyle for 30\u201340 min at easy pace. Use pull buoy if needed to reduce leg fatigue.",
+      "coaching_notes": [
+        "Think \u2018steady cruise\u2019, not race effort.",
+        "If form breaks down, pause, rest, and re-focus on technique."
+      ]
+    },
+    "swim_endurance_optional": {
+      "id": "swim_endurance_optional",
+      "name": "Optional Swim Endurance",
+      "type": "swim",
+      "display_type": "swim_set",
+      "focus": "Optional Aerobic Volume",
+      "purpose": "Extra easy aerobic swim when feeling fresh during higher-volume phases.",
+      "instructions": "Same structure as Swim Endurance but treat as optional\u2014skip if tired.",
+      "coaching_notes": [
+        "This is a \u2018nice to have\u2019, never mandatory.",
+        "If this conflicts with recovery, drop it immediately."
+      ]
+    },
+    "swim_racepace": {
+      "id": "swim_racepace",
+      "name": "Race-Pace Swim Intervals",
+      "type": "swim",
+      "display_type": "swim_set",
+      "focus": "Race Pace & Sighting",
+      "purpose": "Sharpen race-pace feel and maintain form at higher intensity.",
+      "instructions": "Example: 8\u00d7100 @ race pace with 20\u201330 sec rest, or 12\u00d750 including sighting every 6\u20138 strokes.",
+      "coaching_notes": [
+        "Maintain relaxed breathing; do not sprint the early reps.",
+        "Prioritize form and rhythm over absolute speed."
+      ]
+    },
+    "taper_swim_easy": {
+      "id": "taper_swim_easy",
+      "name": "Taper Swim (Easy + Pick-Ups)",
+      "type": "swim",
+      "display_type": "swim_taper",
+      "focus": "Taper Technique & Feel",
+      "purpose": "Keep feel for the water while fully freshening up for race day.",
+      "instructions": "8\u00d750 relaxed technique with long strokes \u2192 2\u00d750 at race pace \u2192 easy 100 cool-down.",
+      "coaching_notes": [
+        "Do not chase speed\u2014everything should feel smooth and snappy.",
+        "If you feel even slightly off, skip the race-pace 50s."
+      ]
+    }
+  },
+  "brick": {
+    "brick_short": {
+      "id": "brick_short",
+      "name": "Short Brick Workout",
+      "type": "brick",
+      "display_type": "brick_dual",
+      "focus": "Bike-Run Transition (Intro)",
+      "purpose": "Introduce the feeling of running off the bike at very low stress.",
+      "instructions": "20 min Z2 bike \u2192 20 min Z2 run.",
+      "coaching_notes": [
+        "Expect legs to feel weird for the first 5 minutes of the run\u2014this is normal.",
+        "Keep both segments truly easy; this is about coordination, not fitness."
+      ]
+    },
+    "brick_medium": {
+      "id": "brick_medium",
+      "name": "Medium Brick Workout",
+      "type": "brick",
+      "display_type": "brick_dual",
+      "focus": "Bike-Run Transition (Build)",
+      "purpose": "Build endurance and comfort with longer bike-run transitions.",
+      "instructions": "40 min Z2 bike \u2192 20 min Z2 run.",
+      "coaching_notes": [
+        "Use this to practice pacing so you don\u2019t over-bike.",
+        "Stay relaxed on the run\u2014no race effort yet."
+      ]
+    },
+    "brick_race": {
+      "id": "brick_race",
+      "name": "Race Brick Workout",
+      "type": "brick",
+      "display_type": "brick_dual",
+      "focus": "Race-Specific Bike-Run",
+      "purpose": "Simulate race-day bike and run intensity in a controlled setting.",
+      "instructions": "60\u201375 min Z2 bike \u2192 20\u201330 min run at race pace (Z3/Z4 blend depending on race).",
+      "coaching_notes": [
+        "Dial in nutrition and pacing exactly as you plan on race day.",
+        "The goal is to finish feeling like \u2018I could have gone a bit more\u2019, not destroyed.",
+        "Reduce duration if done within 3 weeks of race day and fatigue is high."
+      ]
+    }
+  },
+  "mtb": {
+    "mtb_base": {
+      "id": "mtb_base",
+      "name": "MTB Base Ride",
+      "type": "mtb",
+      "display_type": "cardio_continuous",
+      "focus": "Mountain Bike Aerobic Base",
+      "purpose": "Build aerobic base and technical comfort on the mountain bike.",
+      "duration_min": 60,
+      "intensity": "Zone 2",
+      "instructions": "Ride easy to moderate trails for about 60 minutes, keeping climbs mostly in Z2. Focus on smooth cadence and relaxed handling.",
+      "coaching_notes": [
+        "Choose trails where you can ride continuously without frequent stops.",
+        "Practice cornering, braking, and body position in a low-stress context."
+      ]
+    },
+    "mtb_build": {
+      "id": "mtb_build",
+      "name": "MTB Build Ride",
+      "type": "mtb",
+      "display_type": "cardio_intervals",
+      "focus": "Climbing Power + Technical Skills",
+      "purpose": "Develop stronger climbing and technical handling while still building endurance.",
+      "duration_min": 75,
+      "intensity": "Z2 with short Z3 climbs",
+      "instructions": "Ride 75\u201390 min with most of the ride in Z2. Include several short, controlled Z3 climbs where terrain permits.",
+      "coaching_notes": [
+        "Keep Z3 efforts short and controlled\u2014this is not an all-out day.",
+        "Use downhills to mentally and physically reset before the next climb."
+      ]
+    },
+    "mtb_base_long": {
+      "id": "mtb_base_long",
+      "name": "MTB Long Base Ride",
+      "type": "mtb",
+      "display_type": "cardio_continuous",
+      "focus": "Long-Duration MTB Endurance",
+      "purpose": "Build long-duration aerobic endurance on the mountain bike for bigger days and races.",
+      "duration_min": "90\u2013120",
+      "intensity": "Zone 2",
+      "instructions": "Ride easy-moderate trails for 90\u2013120 min, keeping most of the climbing in Z2. Take short stops as needed to stay safe and fueled.",
+      "coaching_notes": [
+        "Fuel with small snacks every 30\u201340 minutes.",
+        "If terrain is very demanding, reduce duration toward the lower end of the range."
+      ]
+    }
+  },
+  "ski": {
+    "ski_power": {
+      "id": "ski_power",
+      "name": "Ski Power Session",
+      "type": "ski",
+      "display_type": "cardio_intervals",
+      "focus": "Anaerobic Leg Power",
+      "purpose": "Prepare legs for short, intense ski efforts and powerful turns.",
+      "duration_min": 30,
+      "intensity": "High (short bouts)",
+      "instructions": "10\u00d720 sec incline power hikes (or fast step-ups) with 1 min easy walking between. Full focus on explosive but controlled drive.",
+      "coaching_notes": [
+        "Keep posture tall and drive through the whole foot.",
+        "If lower back or knees complain, reduce to 6\u20138 reps or lower the incline."
+      ]
+    },
+    "ME_stepups": {
+      "id": "ME_stepups",
+      "name": "Muscular Endurance Step-Ups",
+      "type": "ski",
+      "display_type": "strength_block",
+      "focus": "Ski/MTB Muscular Endurance",
+      "purpose": "Build local muscular endurance in quads and glutes for long ski days and steep hiking.",
+      "primary": [
+        {
+          "exercise_id": "stepups",
+          "sets": 4,
+          "reps": "20 each leg",
+          "rpe": "7"
+        }
+      ],
+      "coaching_notes": [
+        "Use a box height where your knee is at or just below hip height.",
+        "Control the lowering\u2014no bouncing or falling off the box.",
+        "If legs are smoked from other training, cut to 2\u20133 sets."
+      ]
+    }
+  },
+  "recovery": {
+    "recovery_walk": {
+      "id": "recovery_walk",
+      "name": "Recovery Walk",
+      "type": "recovery",
+      "display_type": "recovery",
+      "focus": "Active Recovery",
+      "purpose": "Promote blood flow and recovery without adding training stress.",
+      "duration_min": "15\u201330",
+      "intensity": "Very Easy",
+      "instructions": "Walk at a relaxed pace indoors or outdoors. Breathe nasally when possible.",
+      "coaching_notes": [
+        "You should feel more relaxed after than before.",
+        "Perfect on travel days or the day after hard sessions."
+      ]
+    }
+  },
+  "mobility": {
+    "mobility_light": {
+      "id": "mobility_light",
+      "name": "Light Mobility",
+      "type": "mobility",
+      "display_type": "mobility",
+      "focus": "Recovery + Movement Quality",
+      "purpose": "Reduce stiffness and improve joint comfort between training sessions.",
+      "instructions": "5\u201315 min of light dynamic stretching and easy joint circles for hips, ankles, shoulders, and T-spine.",
+      "coaching_notes": [
+        "Move slowly and intentionally; no forcing end ranges.",
+        "Stop or modify any position that causes pinching or sharp pain."
+      ]
+    }
+  },
+  "event": {
+    "race_day": {
+      "id": "race_day",
+      "name": "Race Day",
+      "type": "event",
+      "display_type": "event",
+      "focus": "Competition",
+      "purpose": "Placeholder for race-day scheduling in the calendar. No prescribed training details in JSON.",
+      "instructions": "Follow race-day plan (warm-up, pacing, nutrition) outside this JSON definition."
+    }
+  }
+}

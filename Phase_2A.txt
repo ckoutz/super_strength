@@ -1,0 +1,403 @@
+[
+  {
+    "date": "2025-12-08",
+    "day_of_week": "Monday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 1,
+    "workouts": [
+      "workout_A"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2025-12-09",
+    "day_of_week": "Tuesday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 1,
+    "workouts": [
+      "Z2_run"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2025-12-10",
+    "day_of_week": "Wednesday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 1,
+    "workouts": [
+      "workout_B"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2025-12-11",
+    "day_of_week": "Thursday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 1,
+    "workouts": [
+      "Z2_incline"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2025-12-12",
+    "day_of_week": "Friday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 1,
+    "workouts": [
+      "Z2_bike"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2025-12-13",
+    "day_of_week": "Saturday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 1,
+    "workouts": [
+      "workout_A",
+      "Z2_run"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2025-12-14",
+    "day_of_week": "Sunday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 1,
+    "workouts": [
+      "recovery_walk"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2025-12-15",
+    "day_of_week": "Monday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 2,
+    "workouts": [
+      "workout_A"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2025-12-16",
+    "day_of_week": "Tuesday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 2,
+    "workouts": [
+      "Z2_run"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2025-12-17",
+    "day_of_week": "Wednesday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 2,
+    "workouts": [
+      "workout_B"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2025-12-18",
+    "day_of_week": "Thursday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 2,
+    "workouts": [
+      "Z2_incline"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2025-12-19",
+    "day_of_week": "Friday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 2,
+    "workouts": [
+      "Z2_bike"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2025-12-20",
+    "day_of_week": "Saturday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 2,
+    "workouts": [
+      "workout_B",
+      "Z2_run"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2025-12-21",
+    "day_of_week": "Sunday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 2,
+    "workouts": [
+      "recovery_walk"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2025-12-22",
+    "day_of_week": "Monday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 3,
+    "workouts": [
+      "workout_A"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2025-12-23",
+    "day_of_week": "Tuesday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 3,
+    "workouts": [
+      "Z2_run"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2025-12-24",
+    "day_of_week": "Wednesday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 3,
+    "workouts": [
+      "workout_B"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2025-12-25",
+    "day_of_week": "Thursday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 3,
+    "workouts": [
+      "Z2_incline"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2025-12-26",
+    "day_of_week": "Friday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 3,
+    "workouts": [
+      "Z2_bike"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2025-12-27",
+    "day_of_week": "Saturday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 3,
+    "workouts": [
+      "workout_A",
+      "Z2_run"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2025-12-28",
+    "day_of_week": "Sunday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 3,
+    "workouts": [
+      "recovery_walk"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2025-12-29",
+    "day_of_week": "Monday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 4,
+    "workouts": [
+      "workout_A"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2025-12-30",
+    "day_of_week": "Tuesday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 4,
+    "workouts": [
+      "Z2_run"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2025-12-31",
+    "day_of_week": "Wednesday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 4,
+    "workouts": [
+      "workout_B"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-01-01",
+    "day_of_week": "Thursday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 4,
+    "workouts": [
+      "Z2_incline"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-01-02",
+    "day_of_week": "Friday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 4,
+    "workouts": [
+      "Z2_bike"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-01-03",
+    "day_of_week": "Saturday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 4,
+    "workouts": [
+      "workout_B",
+      "Z2_run"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-01-04",
+    "day_of_week": "Sunday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 4,
+    "workouts": [
+      "recovery_walk"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-01-05",
+    "day_of_week": "Monday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 5,
+    "workouts": [
+      "workout_A"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-01-06",
+    "day_of_week": "Tuesday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 5,
+    "workouts": [
+      "Z2_run"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-01-07",
+    "day_of_week": "Wednesday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 5,
+    "workouts": [
+      "workout_B"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-01-08",
+    "day_of_week": "Thursday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 5,
+    "workouts": [
+      "Z2_incline"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-01-09",
+    "day_of_week": "Friday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 5,
+    "workouts": [
+      "Z2_bike"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-01-10",
+    "day_of_week": "Saturday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 5,
+    "workouts": [
+      "workout_A",
+      "Z2_run"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-01-11",
+    "day_of_week": "Sunday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 5,
+    "workouts": [
+      "recovery_walk"
+    ],
+    "notes": "",
+    "override": null
+  },
+  {
+    "date": "2026-01-12",
+    "day_of_week": "Monday",
+    "phase": "2A Ski Aerobic Base",
+    "week": 6,
+    "workouts": [
+      "workout_A"
+    ],
+    "notes": "",
+    "override": null
+  }
+]
