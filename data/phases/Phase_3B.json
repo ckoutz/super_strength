@@ -1,0 +1,17 @@
+{
+  "name": "Phase 3B – MTB Build",
+  "start": "2026-04-14",
+  "end": "2026-05-18",
+
+  "days": {
+    "0": ["workout_A"],
+    "1": ["Z2_run"],
+    "2": ["VO2_bike"],
+    "3": ["workout_B"],
+    "4": ["Z2_bike"],
+    "5": ["mtb_build"],
+    "6": ["Z2_run_short"]
+  },
+
+  "weeks": {}
+}

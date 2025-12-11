@@ -1,0 +1,24 @@
+{
+  "name": "Taper Phase",
+  "start": "2026-08-18",
+  "end": "2026-08-28",
+
+  "days": {
+    "0": ["taper_run_easy"],          
+    "1": ["taper_swim_easy"],         
+    "2": ["taper_bike_easy"],         
+    "3": ["mobility_light", "swim_endurance_optional"],          
+    "4": ["brick_short"],             
+    "5": ["Z2_run_short"],            
+    "6": ["swim_endurance"]           
+  },
+
+  "weeks": {
+    "2": {
+      "0": ["swim_racepace"],         
+      "1": ["taper_bike_easy"],       
+      "2": ["taper_run_easy"],        
+      "3": ["rest_day"]               
+    }
+  }
+}

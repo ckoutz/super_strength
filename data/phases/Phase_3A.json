@@ -1,0 +1,17 @@
+{
+  "name": "Phase 3A – MTB Base",
+  "start": "2026-03-17",
+  "end": "2026-04-13",
+
+  "days": {
+    "0": ["workout_A"],
+    "1": ["Z2_run"],
+    "2": ["workout_B"],
+    "3": ["mtb_base"],
+    "4": ["Z2_bike"],
+    "5": ["mtb_base_long"],
+    "6": ["recovery_walk"]
+  },
+
+  "weeks": {}
+}

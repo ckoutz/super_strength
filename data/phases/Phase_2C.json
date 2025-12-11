@@ -1,0 +1,22 @@
+{
+  "name": "Phase 2C – Aerobic Power / Transition",
+  "start": "2026-02-17",
+  "end": "2026-03-16",
+
+  "days": {
+    "0": ["workout_A"],
+    "1": ["Z2_run"],
+    "2": ["workout_B"],
+    "3": ["ski_power"],
+    "4": ["Z2_incline"],
+    "5": ["ALT_SATURDAY"],
+    "6": ["recovery_walk"]
+  },
+
+  "weeks": {
+    "1": { "5": ["workout_A", "Z2_run"] },
+    "2": { "5": ["workout_B", "Z2_run"] },
+    "3": { "5": ["workout_A", "Z2_run"] },
+    "4": { "5": ["workout_B", "Z2_run"] }
+  }
+}

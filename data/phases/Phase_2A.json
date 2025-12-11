@@ -1,0 +1,24 @@
+{
+  "name": "Phase 2A – Ski Aerobic Base",
+  "start": "2025-12-08",
+  "end": "2026-01-12",
+
+  "days": {
+    "0": ["workout_A"],
+    "1": ["Z2_run"],
+    "2": ["workout_B"],
+    "3": ["Z2_incline"],
+    "4": ["Z2_bike"],
+    "5": ["ALT_SATURDAY"],
+    "6": ["recovery_walk"]
+  },
+
+  "weeks": {
+    "1": { "5": ["workout_A", "Z2_run"] },
+    "2": { "5": ["workout_B", "Z2_run"] },
+    "3": { "5": ["workout_A", "Z2_run"] },
+    "4": { "5": ["workout_B", "Z2_run"] },
+    "5": { "5": ["workout_A", "Z2_run"] },
+    "6": { "5": ["workout_B", "Z2_run"] }
+  }
+}

@@ -1,0 +1,33 @@
+
+
+🔧 3. Improve the UI to visually separate:
+
+required workouts
+
+optional workouts
+
+strength vs cardio vs swim
+
+dual sessions (brick days)
+
+🔧 4. Add highlighting (optional)
+
+🟩 Required
+
+🟦 Optional
+
+🟨 Coach override
+
+🔴 Workday modified
+
+
+
+
+7. you caN SAVE TODAYS LOG but then data is erased
+
+
+
+
+
+9. can I save a day multiple times and it is only one record? and updates that page forever
+10. add smart guards

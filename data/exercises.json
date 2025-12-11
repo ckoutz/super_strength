@@ -169,5 +169,25 @@
     "no_equipment": "Lying reverse crunch",
     "notes": "Avoid swinging, control the up and down motion.",
     "tags": ["core", "hip_flexors", "abs"]
+  },
+  "cable_lateral_raise": {
+    "name": "Cable Lateral Raise",
+    "category": "strength",
+    "full_gym": "Cable lateral raise (single-arm or dual cable)",
+    "hotel_gym": "DB lateral raise, plate raise, or band lateral raise",
+    "no_equipment": "Band lateral raise",
+    "notes": "Use light weight. Lead with the elbows. Raise to shoulder height. Keep tension all the way through.",
+    "tags": ["shoulders", "isolation"]
+  },
+
+  "rear_delt_cable_fly": {
+    "name": "Rear Delt Cable Fly",
+    "category": "strength",
+    "full_gym": "Cable rear delt fly (cross cables or dual-cable)",
+    "hotel_gym": "Incline bench DB reverse fly",
+    "no_equipment": "Band pull-aparts",
+    "notes": "Set cables at shoulder height. Pull hands outward in a reverse fly motion. Avoid shrugging.",
+    "tags": ["shoulders", "rear_delts", "upper_back"]
   }
+
 }

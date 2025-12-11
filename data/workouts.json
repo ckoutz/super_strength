@@ -215,6 +215,71 @@
         "If anything hurts or feels off, skip the strides and just jog.",
         "Better to be under-done than over-done in taper week."
       ]
+    },
+    "Z2_incline": {
+      "id": "Z2_incline",
+      "name": "Zone 2 Incline Walk",
+      "type": "run",
+      "display_type": "cardio_continuous",
+      "focus": "Incline Aerobic Base",
+      "purpose": "Low-impact aerobic conditioning using incline walking as the primary modality.",
+      "duration_min": "40-60",
+      "intensity": "Zone 2",
+      "instructions": "Walk on a treadmill at 6-12% incline at a pace that keeps HR in Zone 2. Keep posture tall, do not lean forward, and stay relaxed.",
+      "coaching_notes": [
+        "Incline is the most joint-friendly way to build aerobic capacity.",
+        "Ideal for travel days when running feels too pounding.",
+        "If HR spikes above Z2, shorten steps instead of reducing incline."
+      ]
+    },
+
+    "hill_climb_z2": {
+      "id": "hill_climb_z2",
+      "name": "Hill Climb (Z2)",
+      "type": "run",
+      "display_type": "cardio_continuous",
+      "focus": "Aerobic Uphill Endurance",
+      "purpose": "Build climbing-specific aerobic strength for ski touring, MTB, and general endurance.",
+      "duration_min": "45–75",
+      "intensity": "Zone 2",
+      "instructions": "Steady uphill walking or treadmill incline 8–15%. Tall posture, consistent foot drive.",
+      "coaching_notes": [
+        "Keep breathing controlled; this is not a max effort.",
+        "Shorten stride and increase cadence if HR climbs too high.",
+        "Consistency > steepness — choose a path or incline you can sustain."
+      ]
+    },
+    "hill_climb_weighted": {
+      "id": "hill_climb_weighted",
+      "name": "Weighted Hill Climb (Ruck)",
+      "type": "run",
+      "display_type": "cardio_continuous",
+      "focus": "Loaded Endurance + Leg Durability",
+      "purpose": "Develop loaded climbing strength for ski touring, mountaineering, and heavy endurance efforts.",
+      "duration_min": "30–60",
+      "intensity": "Zone 2",
+      "instructions": "Climb with a backpack (20–35 lb). Treadmill incline 10–15% or outdoor hill. Maintain smooth rhythm.",
+      "coaching_notes": [
+        "Drop weight immediately if lower back tightens.",
+        "Stay in Z2 — avoid grinding or leaning excessively.",
+        "Add weight only when unweighted hills feel easy."
+      ]
+    },
+    "hill_climb_power": {
+      "id": "hill_climb_power",
+      "name": "Hill Power Repeats",
+      "type": "run",
+      "display_type": "cardio_intervals",
+      "focus": "Uphill Power Development",
+      "purpose": "Train short, controlled uphill power bursts to complement ski power and MTB climbing.",
+      "duration_min": 25,
+      "intensity": "High (short bouts)",
+      "instructions": "8–12 × 20–30 sec hard uphill bursts (10–20% incline or steep outdoor hill) with 1–2 min easy walk downhill.",
+      "coaching_notes": [
+        "Think powerful, crisp, explosive — not sloppy.",
+        "Glute-driven, not calf-driven.",
+        "Stop immediately if Achilles or ankles tighten."
+      ]
     }
   },
   "bike": {
@@ -546,6 +611,24 @@
       "focus": "Competition",
       "purpose": "Placeholder for race-day scheduling in the calendar. No prescribed training details in JSON.",
       "instructions": "Follow race-day plan (warm-up, pacing, nutrition) outside this JSON definition."
+    },
+    "rest_day": {
+      "id": "rest_day",
+      "name": "Rest Day",
+      "type": "event",
+      "display_type": "rest",
+      "focus": "Full Rest / Race Prep",
+      "purpose": "Remove all training stress. Prioritize sleep, hydration, nutrition, and equipment prep.",
+      "instructions": "No training. Optional: 5–10 minutes extremely gentle mobility if desired.",
+      "coaching_notes": [
+        "If anything feels off, stay horizontal — do not add activities.",
+        "Hydrate throughout the day and prepare gear for race morning.",
+        "Mentally rehearse pacing and logistics."
+      ]
     }
+
+
   }
+  
+
 }

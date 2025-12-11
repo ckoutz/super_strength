@@ -1,0 +1,448 @@
+import streamlit as st
+from datetime import date
+from typing import Dict, Any, List
+
+from utils.load_json import load_workouts, load_exercises, load_phases
+from utils.get_today_plan import get_today_plan
+from utils.tcx_parser import parse_tcx
+from utils.hypertrophy import (
+    get_hypertrophy_suggestions,
+    load_log as load_strength_log,
+    get_last_strength_entry,
+)
+from utils.save_log import save_log_row
+
+
+# ---------------------------------------------------------
+# PATHS / LOAD DATA
+# ---------------------------------------------------------
+WORKOUTS_PATH = "data/workouts.json"
+EXERCISES_PATH = "data/exercises.json"
+PHASES_FOLDER = "data/phases"
+
+workouts_raw = load_workouts(WORKOUTS_PATH)
+exercises = load_exercises(EXERCISES_PATH)
+phases = load_phases(PHASES_FOLDER)
+
+# Flatten workouts so we can look them up by ID: {"workout_A": {...}, "Z2_run": {...}, ...}
+workouts: Dict[str, Dict[str, Any]] = {}
+if isinstance(workouts_raw, dict):
+    for category, group in workouts_raw.items():
+        if isinstance(group, dict):
+            for wid, wdata in group.items():
+                workouts[str(wid)] = wdata
+
+# Strength log (for last-session lookups)
+df_strength_log = load_strength_log()
+
+
+# ---------------------------------------------------------
+# SMALL HELPERS
+# ---------------------------------------------------------
+def summarize_workout(w: Dict[str, Any]) -> str:
+    """Summarize a workout; if strength_block, show all lifts on one line."""
+    if not w:
+        return "[Missing]"
+
+    display_type = w.get("display_type")
+
+    # Strength block → list all exercise names
+    if display_type == "strength_block":
+        names = []
+
+        # Primary lifts
+        for p in w.get("primary", []):
+            ex_id = p.get("exercise_id")
+            ex_name = exercises.get(ex_id, {}).get("name", ex_id)
+            names.append(ex_name)
+
+        # Accessories
+        for a in w.get("accessories", []):
+            ex_id = a.get("exercise_id")
+            ex_name = exercises.get(ex_id, {}).get("name", ex_id)
+            names.append(ex_name)
+
+        if names:
+            return " · ".join(names)
+
+    # Non-strength → keep old behavior
+    t = w.get("type", "session").capitalize()
+    focus = w.get("focus", "")
+    return f"{t} · {focus}" if focus else t
+
+
+
+def get_variant_options(ex_id: str, ex_def: Dict[str, Any]) -> List[str]:
+    """Build list of variant labels for an exercise."""
+    variants = []
+    for key in ["full_gym", "hotel_gym", "no_equipment"]:
+        v = ex_def.get(key)
+        if v:
+            variants.append(v)
+    if not variants:
+        variants = [ex_def.get("name", ex_id)]
+    # Remove duplicates while preserving order
+    seen = set()
+    clean = []
+    for v in variants:
+        if v not in seen:
+            seen.add(v)
+            clean.append(v)
+    return clean
+
+
+def default_duration_minutes(raw):
+    """Helper to turn duration_min (which might be '30–45') into an int default."""
+    if isinstance(raw, (int, float)):
+        return int(raw)
+    if isinstance(raw, str):
+        s = raw.replace("–", "-")
+        if "-" in s:
+            low, _ = s.split("-", 1)
+            try:
+                return int(low.strip())
+            except Exception:
+                return 0
+        try:
+            return int(s.strip())
+        except Exception:
+            return 0
+    return 0
+
+
+# ---------------------------------------------------------
+# STREAMLIT SETUP
+# ---------------------------------------------------------
+st.set_page_config(page_title="Training App", layout="centered")
+st.title("Daily Training")
+
+
+# ---------------------------------------------------------
+# DATE & PLAN
+# ---------------------------------------------------------
+selected_date = st.date_input("Select a date", value=date.today())
+
+phase_name, primary_id, secondary_ids = get_today_plan(selected_date, phases)
+all_ids = []
+if primary_id:
+    all_ids.append(primary_id)
+if secondary_ids:
+    all_ids.extend(secondary_ids)
+
+existing_ids = [wid for wid in all_ids if wid in workouts]
+missing_ids = [wid for wid in all_ids if wid not in workouts]
+
+st.header(f"Phase: {phase_name}")
+
+if not existing_ids:
+    st.info("No workouts scheduled or found for this date.")
+    st.stop()
+
+if missing_ids:
+    st.warning(f"These workout IDs are referenced but missing from workouts.json: {missing_ids}")
+
+
+# ---------------------------------------------------------
+# COMPACT SUMMARY (TWO COLUMNS)
+# ---------------------------------------------------------
+primary_workout = workouts.get(primary_id, {}) if primary_id else None
+secondary_workouts = [workouts[w_id] for w_id in existing_ids[1:] if w_id in workouts]
+
+col_left, col_right = st.columns(2)
+
+with col_left:
+    st.subheader("Today – Primary")
+    if primary_workout:
+        st.markdown(f"**{primary_workout.get('name', '[Unnamed]')}**")
+        st.caption(summarize_workout(primary_workout))
+        if primary_workout.get("display_type") == "strength_block":
+            primaries = primary_workout.get("primary", [])
+            if primaries:
+                st.markdown(
+                    " · ".join(
+                        exercises.get(p["exercise_id"], {}).get("name", p["exercise_id"])
+                         for p in primaries
+                    )
+                )
+        else:
+            st.markdown(primary_workout.get("instructions", "")[:180] + "...")
+    else:
+        st.write("No primary workout today.")
+
+with col_right:
+    st.subheader("Additional Sessions")
+    if secondary_workouts:
+        for w in secondary_workouts:
+            st.markdown(f"- **{w.get('name', '[Unnamed]')}**")
+            st.caption(summarize_workout(w))
+    else:
+        st.caption("None scheduled.")
+
+
+st.markdown("---")
+
+
+# ---------------------------------------------------------
+# READINESS / DAILY FEEL
+# ---------------------------------------------------------
+c1, c2 = st.columns(2)
+hrv = c1.text_input("HRV (optional)", value="")
+sleep_hours = c2.text_input("Sleep hours", value="")
+
+c3, c4, c5 = st.columns(3)
+fatigue = c3.slider("Fatigue (1 = wrecked, 5 = great)", 1, 5, 3)
+soreness = c4.slider("Soreness (1–5)", 1, 5, 3)
+mood = c5.slider("Mood (1–5)", 1, 5, 3)
+
+notes = st.text_area("Notes", height=80)
+
+
+# ---------------------------------------------------------
+# HYPERTROPHY SUGGESTIONS (BACKGROUND ONLY)
+# ---------------------------------------------------------
+strength_ids = [
+    wid for wid in existing_ids
+    if workouts.get(wid, {}).get("display_type") == "strength_block"
+]
+
+hypertrophy_suggestions: Dict[str, Dict[str, Any]] = {}
+if strength_ids:
+    hypertrophy_suggestions = get_hypertrophy_suggestions(
+        selected_date,
+        strength_ids,
+        workouts,
+        fatigue_score=float(fatigue),
+    )
+
+
+# ---------------------------------------------------------
+# STRENGTH LOGGING
+# ---------------------------------------------------------
+strength_block_entries: List[Dict[str, Any]] = []
+
+if strength_ids:
+    st.markdown("### Strength Session Log")
+
+    for w_id in strength_ids:
+        w = workouts[w_id]
+        st.markdown(f"#### {w.get('name', 'Strength Workout')}")
+
+        for block_label, block_key in [("Primary Lifts", "primary"), ("Accessories", "accessories")]:
+            block = w.get(block_key, [])
+            if not block:
+                continue
+
+            st.caption(block_label)
+
+            for idx, lift in enumerate(block):
+                ex_id = lift["exercise_id"]
+                ex_def = exercises.get(ex_id, {})
+                ex_name = ex_def.get("name", ex_id)
+
+                last_entry = get_last_strength_entry(df_strength_log, selected_date, ex_id)
+
+                # Variant selection
+                variants = get_variant_options(ex_id, ex_def)
+                default_variant = variants[0]
+                if last_entry and last_entry.get("variant") in variants:
+                    default_variant = last_entry["variant"]
+
+                st.markdown(f"**{ex_name}**")
+                if last_entry:
+                    st.caption(
+                        f"Last: {last_entry.get('sets')} × {last_entry.get('reps')} "
+                        f"@ {last_entry.get('weight')} (RPE {last_entry.get('rpe')}) on {last_entry.get('date')}"
+                    )
+
+                c_var, c_sets = st.columns(2)
+                variant = c_var.selectbox(
+                    "Variant",
+                    variants,
+                    index=variants.index(default_variant),
+                    key=f"{w_id}_{ex_id}_variant_{idx}",
+                )
+
+                sug = hypertrophy_suggestions.get(ex_id, {})
+                base_sets = int(lift.get("sets", 3))
+                default_sets = int(sug.get("sets", base_sets))
+
+                num_sets = c_sets.number_input(
+                    "Sets",
+                    min_value=1,
+                    max_value=10,
+                    value=default_sets,
+                    key=f"{w_id}_{ex_id}_sets_{idx}",
+                )
+
+                # Per-set lines
+                sets_detail = []
+                for s_idx in range(int(num_sets)):
+                    c_r, c_w, c_rpe = st.columns(3)
+                    default_reps = sug.get("reps", lift.get("reps", "8"))
+                    default_weight = sug.get("weight", None)
+                    default_rpe = sug.get("target_rpe", lift.get("rpe", "7"))
+
+                    reps_val = c_r.text_input(
+                        f"Reps (set {s_idx+1})",
+                        value=str(default_reps),
+                        key=f"{w_id}_{ex_id}_reps_{idx}_{s_idx}",
+                    )
+                    weight_val = c_w.text_input(
+                        f"Weight (set {s_idx+1})",
+                        value="" if default_weight is None else str(default_weight),
+                        key=f"{w_id}_{ex_id}_wt_{idx}_{s_idx}",
+                    )
+                    rpe_val = c_rpe.text_input(
+                        f"RPE (set {s_idx+1})",
+                        value=str(default_rpe),
+                        key=f"{w_id}_{ex_id}_rpe_{idx}_{s_idx}",
+                    )
+
+                    sets_detail.append(
+                        {
+                            "set_number": s_idx + 1,
+                            "reps": reps_val,
+                            "weight": weight_val,
+                            "rpe": rpe_val,
+                        }
+                    )
+
+                # Aggregate entry per exercise (for progression logic)
+                last_set = sets_detail[-1]
+                strength_block_entries.append(
+                    {
+                        "exercise_id": ex_id,
+                        "exercise_name": ex_name,
+                        "variant": variant,
+                        "sets": int(num_sets),
+                        "reps": last_set["reps"],
+                        "weight": last_set["weight"],
+                        "rpe": last_set["rpe"],
+                        "sets_detail": sets_detail,
+                    }
+                )
+
+    st.markdown("---")
+
+
+# ---------------------------------------------------------
+# CARDIO / CONDITIONING LOGGING
+# ---------------------------------------------------------
+cardio_ids = [
+    wid for wid in existing_ids
+    if workouts.get(wid, {}).get("display_type") != "strength_block"
+]
+
+cardio_sessions: List[Dict[str, Any]] = []
+
+if cardio_ids:
+    st.markdown("### Cardio / Conditioning Log")
+
+    for w_id in cardio_ids:
+        w = workouts[w_id]
+        name = w.get("name", w_id)
+        st.markdown(f"**{name}**")
+
+        c1, c2, c3, c4 = st.columns(4)
+        done = c1.checkbox("Done?", value=True, key=f"{w_id}_done")
+        default_min = default_duration_minutes(w.get("duration_min", 0))
+        duration = c2.number_input(
+            "Minutes",
+            min_value=0,
+            max_value=400,
+            value=default_min,
+            key=f"{w_id}_dur",
+        )
+        distance = c3.text_input(
+            "Distance (mi/km)",
+            value="",
+            key=f"{w_id}_dist",
+        )
+        rpe_cardio = c4.slider(
+            "RPE",
+            min_value=1,
+            max_value=10,
+            value=6,
+            key=f"{w_id}_rpe",
+        )
+
+        avg_hr = st.text_input(
+            "Average HR (bpm)",
+            value="",
+            key=f"{w_id}_hr",
+        )
+
+        if done:
+            cardio_sessions.append(
+                {
+                    "workout_id": w_id,
+                    "name": name,
+                    "duration_min": duration,
+                    "distance": distance,
+                    "rpe": rpe_cardio,
+                    "avg_hr": avg_hr,
+                }
+            )
+
+    st.markdown("---")
+
+
+# ---------------------------------------------------------
+# OPTIONAL TCX UPLOAD (SIMPLE)
+# ---------------------------------------------------------
+st.markdown("### Optional TCX Upload (for your reference)")
+tcx_file = st.file_uploader("Upload TCX (.tcx)", type=["tcx"])
+tcx_summary = None
+if tcx_file:
+    parsed = parse_tcx(tcx_file)
+    if parsed:
+        tcx_summary = parsed
+        st.success("TCX parsed")
+        st.write(parsed)
+    else:
+        st.error("Could not parse TCX file.")
+
+
+# ---------------------------------------------------------
+# ADDITIONAL SESSION (AFTER MAIN LOGGING)
+# ---------------------------------------------------------
+st.markdown("---")
+st.markdown("### Optional Extra Session")
+
+extra_type = st.selectbox(
+    "Add extra session?",
+    ["None", "Extra Strength", "Extra Cardio"],
+)
+extra_notes = ""
+if extra_type != "None":
+    extra_notes = st.text_area(
+        "Extra session details (what you did, duration, etc.)",
+        height=60,
+    )
+
+
+# ---------------------------------------------------------
+# SAVE LOG
+# ---------------------------------------------------------
+log_data: Dict[str, Any] = {
+    "date": selected_date,
+    "phase": phase_name,
+    "primary_id": primary_id,
+    "secondary_ids": ",".join(secondary_ids) if secondary_ids else "",
+    "scheduled_workouts": ",".join(existing_ids),
+    "strength_block": str(strength_block_entries),
+    "cardio_sessions": str(cardio_sessions),
+    "tcx_summary": str(tcx_summary) if tcx_summary else "",
+    "hrv": hrv,
+    "sleep_hours": sleep_hours,
+    "fatigue_1_5": fatigue,
+    "soreness_1_5": soreness,
+    "mood_1_5": mood,
+    "notes": notes,
+    "extra_session_type": extra_type,
+    "extra_session_notes": extra_notes,
+}
+
+if st.button("Save today’s log"):
+    save_log_row(log_data)
+    st.success("Logged ✅")

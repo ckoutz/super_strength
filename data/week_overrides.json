@@ -1,0 +1,64 @@
+{
+  "2025-12-08": {
+    "mode": [
+      "planned"
+    ]
+  },
+  "2025-12-09": {
+    "mode": [
+      "planned"
+    ]
+  },
+  "2025-12-10": {
+    "mode": [
+      "manual"
+    ],
+    "manual_workout_id": [
+      "strength"
+    ]
+  },
+  "2025-12-11": {
+    "mode": [
+      "planned"
+    ]
+  },
+  "2025-12-12": {
+    "mode": [
+      "planned"
+    ]
+  },
+  "2025-12-13": {
+    "mode": [
+      "planned"
+    ]
+  },
+  "2025-12-14": {
+    "mode": [
+      "planned"
+    ]
+  },
+  "2025-12-15": {
+    "0": [
+      "workout_A"
+    ],
+    "1": [
+      "Z2_run"
+    ],
+    "2": [
+      "workout_B"
+    ],
+    "3": [
+      "Z2_incline"
+    ],
+    "4": [
+      "Z2_bike"
+    ],
+    "5": [
+      "workout_B",
+      "Z2_run"
+    ],
+    "6": [
+      "recovery_walk"
+    ]
+  }
+}

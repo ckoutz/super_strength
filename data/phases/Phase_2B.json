@@ -1,0 +1,23 @@
+{
+  "name": "Phase 2B – Muscular Endurance",
+  "start": "2026-01-13",
+  "end": "2026-02-16",
+
+  "days": {
+    "0": ["workout_A"],
+    "1": ["Z2_run"],
+    "2": ["workout_B"],
+    "3": ["ME_stepups"],
+    "4": ["Z2_bike"],
+    "5": ["ALT_SATURDAY"],
+    "6": ["recovery_walk"]
+  },
+
+  "weeks": {
+    "1": { "5": ["workout_A", "Z2_run_short"] },
+    "2": { "5": ["workout_B", "Z2_run_short"] },
+    "3": { "5": ["workout_A", "Z2_run_short"] },
+    "4": { "5": ["workout_B", "Z2_run_short"] },
+    "5": { "5": ["workout_A", "Z2_run_short"] }
+  }
+}

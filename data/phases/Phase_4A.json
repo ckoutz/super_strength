@@ -1,0 +1,17 @@
+{
+  "name": "Phase 4 – Triathlon Base",
+  "start": "2026-05-19",
+  "end": "2026-07-13",
+
+  "days": {
+    "0": ["workout_A"],
+    "1": ["tempo_run"],
+    "2": ["swim_technique"],
+    "3": ["tempo_bike"],
+    "4": ["workout_B", "swim_endurance_optional"],
+    "5": ["brick_medium"],
+    "6": ["Z2_run_long"]
+  },
+
+  "weeks": {}
+}

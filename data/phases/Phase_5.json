@@ -1,0 +1,17 @@
+{
+  "name": "Phase 5 – Race Build",
+  "start": "2026-07-14",
+  "end": "2026-08-17",
+
+  "days": {
+    "0": ["workout_A"],
+    "1": ["threshold_run"],
+    "2": ["swim_racepace"],
+    "3": ["threshold_bike"],
+    "4": ["Z2_bike", "swim_endurance_optional"],
+    "5": ["brick_race"],
+    "6": ["Z2_run_long"]
+  },
+
+  "weeks": {}
+}
