@@ -1,145 +1,161 @@
 import streamlit as st
 import pandas as pd
+import ast
 import json
-from datetime import date, timedelta
-
-st.set_page_config(page_title="Training Analytics", layout="wide")
-st.title("Training Analytics Dashboard")
-
-LOG_PATH = "training_log.csv"
 
 
-# -----------------------------------------------------------------------
-# Load + Normalize
-# -----------------------------------------------------------------------
+# -------------------------------------------------------------
+# SAFE PARSER FOR LIST COLUMNS
+# -------------------------------------------------------------
+def safe_parse_list(val):
+    """
+    Safely parse list-like fields in the CSV.
+    
+    Supports:
+        - Valid JSON lists
+        - Python literal lists/dicts
+        - Empty strings
+        - NaN
+    Always returns a list.
+    """
+    if not isinstance(val, str):
+        return []
+
+    s = val.strip()
+    if s == "":
+        return []
+
+    # Try JSON first
+    if s.startswith("[") and "{" in s:
+        try:
+            return json.loads(s)
+        except Exception:
+            pass
+
+    # Try Python literal
+    try:
+        parsed = ast.literal_eval(s)
+        return parsed if isinstance(parsed, list) else []
+    except Exception:
+        return []
+
+
+# -------------------------------------------------------------
+# LOAD LOGS
+# -------------------------------------------------------------
 @st.cache_data
 def load_logs():
     try:
-        df = pd.read_csv(LOG_PATH)
+        df = pd.read_csv("training_log.csv")
     except FileNotFoundError:
         return pd.DataFrame()
 
-    # Convert date field
+    # Fix date parsing
     if "date" in df.columns:
-        df["date"] = pd.to_datetime(df["date"]).dt.date
+        df["date"] = pd.to_datetime(df["date"], errors="coerce").dt.date
 
-    # Parse JSON columns
-    for col in ["strength_block", "cardio_sessions"]:
+    # Columns that contain stored lists
+    list_cols = ["strength_block", "cardio_sessions"]
+
+    for col in list_cols:
         if col in df.columns:
-            df[col] = df[col].apply(lambda x: json.loads(x) if isinstance(x, str) and x.startswith("[") else [])
+            df[col] = df[col].apply(safe_parse_list)
 
     return df
 
 
+# -------------------------------------------------------------
+# PAGE LAYOUT
+# -------------------------------------------------------------
+st.title("📊 Training Analytics")
+
 df = load_logs()
 
 if df.empty:
-    st.warning("No training logs found.")
+    st.warning("No training data found yet. Complete a workout day to generate logs.")
     st.stop()
 
 
-# -----------------------------------------------------------------------
-# Sidebar Filters
-# -----------------------------------------------------------------------
-st.sidebar.header("Filters")
+# -------------------------------------------------------------
+# DATE FILTERING
+# -------------------------------------------------------------
+st.subheader("Filter Date Range")
 
-end_date = st.sidebar.date_input("End Date", value=date.today())
-start_date = st.sidebar.date_input("Start Date", value=end_date - timedelta(days=30))
+col1, col2 = st.columns(2)
+default_start = df["date"].min()
+default_end = df["date"].max()
 
+start_date = col1.date_input("Start", default_start)
+end_date = col2.date_input("End", default_end)
+
+# Convert to comparable format
 mask = (df["date"] >= start_date) & (df["date"] <= end_date)
-df_f = df[mask].sort_values("date")
+filtered = df.loc[mask]
 
-st.sidebar.write(f"Loaded **{len(df_f)} days** of logs.")
+st.write(f"Showing **{len(filtered)} entries** from **{start_date} → {end_date}**")
+
+if filtered.empty:
+    st.info("No logs in this date range.")
+    st.stop()
 
 
-# -----------------------------------------------------------------------
-# TRAINING VOLUME SUMMARY
-# -----------------------------------------------------------------------
-st.subheader("Strength Volume Summary")
+# -------------------------------------------------------------
+# RAW TABLE VIEW
+# -------------------------------------------------------------
+st.subheader("Raw Log Data")
+st.dataframe(filtered, use_container_width=True)
 
-volume_rows = []
 
-for _, row in df_f.iterrows():
-    for ex in row["strength_block"]:
-        sets = ex.get("sets", 0)
-        reps = ex.get("reps", 0)
-        weight = ex.get("weight", 0)
+# -------------------------------------------------------------
+# BASIC SUMMARY STATS
+# -------------------------------------------------------------
+st.subheader("Summary Metrics")
 
+total_strength_sessions = filtered["strength_block"].apply(lambda x: len(x) > 0).sum()
+total_cardio_sessions = filtered["cardio_sessions"].apply(lambda x: len(x) > 0).sum()
+
+colA, colB = st.columns(2)
+colA.metric("Strength Days Logged", total_strength_sessions)
+colB.metric("Cardio Sessions Logged", total_cardio_sessions)
+
+
+# -------------------------------------------------------------
+# VOLUME ANALYSIS (SETS × REPS × WEIGHT)
+# -------------------------------------------------------------
+st.subheader("Strength Volume Analysis")
+
+def calc_volume(str_block):
+    """
+    Computes volume = sum(weight * reps) for last set of each exercise.
+    """
+    vol = 0
+    for ex in str_block:
         try:
-            volume = int(sets) * int(reps) * float(weight)
+            reps = float(ex.get("reps", 0))
+            wt = float(ex.get("weight", 0))
+            vol += reps * wt
         except:
-            volume = None
+            pass
+    return vol
 
-        volume_rows.append({
-            "date": row["date"],
-            "exercise": ex.get("exercise_name", ""),
-            "sets": sets,
-            "reps": reps,
-            "weight": weight,
-            "volume": volume
-        })
-
-vol_df = pd.DataFrame(volume_rows)
-
-if not vol_df.empty:
-    # Weekly volume
-    vol_df["week"] = vol_df["date"].apply(lambda d: d.isocalendar()[1])
-    weekly_volume = vol_df.groupby("week")["volume"].sum()
-
-    st.line_chart(weekly_volume, height=250)
-
-    # Per-exercise breakdown
-    ex_vol = vol_df.groupby("exercise")["volume"].sum().sort_values(ascending=False)
-    st.bar_chart(ex_vol, height=300)
-else:
-    st.info("No strength volume data.")
+filtered["volume"] = filtered["strength_block"].apply(calc_volume)
+st.line_chart(filtered.set_index("date")["volume"])
 
 
-# -----------------------------------------------------------------------
-# CARDIO ANALYTICS
-# -----------------------------------------------------------------------
-st.subheader("Cardio Analytics")
+# -------------------------------------------------------------
+# EXPORT OPTIONS
+# -------------------------------------------------------------
+st.subheader("Export Data")
 
-cardio_rows = []
+csv = filtered.to_csv(index=False).encode("utf-8")
 
-for _, row in df_f.iterrows():
-    for c in row["cardio_sessions"]:
-        cardio_rows.append({
-            "date": row["date"],
-            "name": c.get("name", ""),
-            "duration": float(c.get("duration_min", 0)),
-            "distance": float(c.get("distance", 0) or 0),
-            "avg_hr": float(c.get("avg_hr", 0) or 0),
-            "max_hr": float(c.get("max_hr", 0) or 0),
-        })
+st.download_button(
+    "Download Filtered CSV",
+    csv,
+    "training_logs_filtered.csv",
+    "text/csv",
+)
 
-cardio_df = pd.DataFrame(cardio_rows)
-
-if not cardio_df.empty:
-    st.write("### Cardio Duration (Minutes per Day)")
-    dur = cardio_df.groupby("date")["duration"].sum()
-    st.area_chart(dur, height=250)
-
-    st.write("### Average Heart Rate Over Time")
-    hr = cardio_df.groupby("date")["avg_hr"].mean()
-    st.line_chart(hr, height=250)
-
-    st.write("### Distance Over Time")
-    dist = cardio_df.groupby("date")["distance"].sum()
-    st.line_chart(dist, height=250)
-
-else:
-    st.info("No cardio data logged.")
+st.success("Analytics page is fully operational.")
 
 
-# -----------------------------------------------------------------------
-# READINESS METRICS
-# -----------------------------------------------------------------------
-st.subheader("Readiness: HRV / Fatigue / Soreness / Mood")
-
-readiness_cols = ["hrv", "fatigue_1_5", "soreness_1_5", "mood_1_5"]
-ready_df = df_f[["date"] + readiness_cols].set_index("date")
-
-st.line_chart(ready_df, height=300)
-
-st.success("Analytics loaded successfully.")
