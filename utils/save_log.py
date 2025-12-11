@@ -1,123 +1,45 @@
 import os
-import json
-from typing import Dict, Any
-
 import pandas as pd
+import json
 
-# -------------------------------------------------------------------
-# FILE PATHS
-# -------------------------------------------------------------------
-LOG_FILE = "training_log.csv"
-WEEK_OVERRIDE_FILE = "week_overrides.json"
+LOG_PATH = "training_log.csv"
 
 
-# -------------------------------------------------------------------
-# DAILY LOGGING (USED BY app.py / Today page)
-# -------------------------------------------------------------------
-def save_log_row(row: Dict[str, Any]) -> None:
-    """
-    Save or update a single day's training log.
-
-    - If an entry for the same date already exists, it is replaced.
-    - Otherwise, the row is appended.
-    """
-    # Make a one-row DataFrame
-    df_new = pd.DataFrame([row])
-
-    # Normalize date to ISO string for stable comparisons
-    if "date" in df_new.columns:
-        df_new["date"] = pd.to_datetime(df_new["date"]).dt.date.astype(str)
-
-    # Load existing log if it exists
-    if os.path.exists(LOG_FILE):
-        try:
-            df_old = pd.read_csv(LOG_FILE)
-        except Exception:
-            df_old = pd.DataFrame()
-    else:
-        df_old = pd.DataFrame()
-
-    if not df_old.empty:
-        # Normalize existing date column
-        if "date" in df_old.columns:
-            df_old["date"] = pd.to_datetime(df_old["date"]).dt.date.astype(str)
-
-        # Remove any row with the same date as the new row
-        new_date = df_new["date"].iloc[0]
-        df_old = df_old[df_old["date"] != new_date]
-
-        # Combine
-        df_all = pd.concat([df_old, df_new], ignore_index=True)
-    else:
-        df_all = df_new
-
-    # Save back to CSV
-    df_all.to_csv(LOG_FILE, index=False)
-
-
-# -------------------------------------------------------------------
-# WEEKLY OVERRIDES (USED BY Weekly.py)
-# -------------------------------------------------------------------
-def _load_all_week_overrides() -> Dict[str, Dict[str, Any]]:
-    """
-    Internal helper: load the full JSON of all week overrides.
-    Structure:
-    {
-      "2025-W03": {
-        "2025-01-13": "REST",
-        "2025-01-14": "MANUAL:workout_A",
-        "2025-01-15": "SWAP:2025-01-17",
-        ...
-      },
-      "2025-W04": { ... }
-    }
-    """
-    if not os.path.exists(WEEK_OVERRIDE_FILE):
-        return {}
-
+def json_safe(obj):
+    """Ensure all objects are JSON-serializable."""
     try:
-        with open(WEEK_OVERRIDE_FILE, "r") as f:
-            data = json.load(f)
-        if isinstance(data, dict):
-            return data
-        return {}
+        return obj if isinstance(obj, (dict, list, str, int, float, bool)) else str(obj)
     except Exception:
-        return {}
+        return str(obj)
 
 
-def _save_all_week_overrides(all_data: Dict[str, Dict[str, Any]]) -> None:
-    """Internal helper: write the full overrides structure back to disk."""
-    with open(WEEK_OVERRIDE_FILE, "w") as f:
-        json.dump(all_data, f, indent=2)
-
-
-def load_week_overrides(week_key: str) -> Dict[str, Any]:
+def save_log_row(log_data: dict):
     """
-    Load overrides for a specific ISO week key (e.g., '2025-W03').
-
-    Returns a dict mapping date strings -> override directive, e.g.:
-      {
-        "2025-01-13": "REST",
-        "2025-01-14": "MANUAL:workout_A",
-        "2025-01-15": "SWAP:2025-01-17"
-      }
+    Writes a single day's training log to CSV.
+    All nested objects are stored as valid JSON strings, not Python repr().
     """
-    all_data = _load_all_week_overrides()
-    wk = all_data.get(week_key, {})
-    return wk if isinstance(wk, dict) else {}
+    log_data_clean = {}
 
+    for key, val in log_data.items():
+        # Convert nested python objects to clean JSON
+        if isinstance(val, (list, dict)):
+            log_data_clean[key] = json.dumps(val, default=json_safe)
+        else:
+            log_data_clean[key] = val
 
-def save_week_overrides(week_key: str, overrides: Dict[str, Any]) -> None:
-    """
-    Save overrides for a given week key (e.g., '2025-W03').
+    # Load existing log
+    if os.path.exists(LOG_PATH):
+        df = pd.read_csv(LOG_PATH)
+    else:
+        df = pd.DataFrame()
 
-    `overrides` should be a dict mapping date strings to override directives, e.g.:
-      {
-        "2025-01-13": "REST",
-        "2025-01-14": "MANUAL:workout_A",
-        "2025-01-15": "SWAP:2025-01-17"
-      }
-    """
-    all_data = _load_all_week_overrides()
-    all_data[week_key] = overrides
-    _save_all_week_overrides(all_data)
+    # Remove previous entry for this same date (overwrite logic)
+    if "date" in df.columns:
+        df = df[df["date"] != str(log_data_clean["date"])]
+
+    # Append
+    df = pd.concat([df, pd.DataFrame([log_data_clean])], ignore_index=True)
+
+    # Save
+    df.to_csv(LOG_PATH, index=False)
+    print("Saved log row for:", log_data_clean["date"])
