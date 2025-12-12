@@ -7,11 +7,14 @@ import streamlit as st
 from utils.load_json import load_workouts, load_exercises, load_phases
 from utils.get_today_plan import get_today_plan
 from utils.tcx_parser import load_tcx_from_upload
+from utils.hypertrophy import (
     get_hypertrophy_suggestions,
     load_log as load_training_log,
     get_last_strength_entry,
 )
 from utils.save_log import save_log_row
+
+
 
 
 # --------------------------------------------------------------------
