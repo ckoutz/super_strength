@@ -6,8 +6,7 @@ import streamlit as st
 
 from utils.load_json import load_workouts, load_exercises, load_phases
 from utils.get_today_plan import get_today_plan
-from utils.tcx_parser import parse_tcx
-from utils.hypertrophy import (
+from utils.tcx_parser import load_tcx_from_upload
     get_hypertrophy_suggestions,
     load_log as load_training_log,
     get_last_strength_entry,
@@ -549,52 +548,116 @@ def render_cardio_block(origin: str, w_id: str, w: Dict[str, Any]) -> Optional[D
     tcx_file = st.file_uploader(
         "Upload TCX (.tcx)",
         type=["tcx"],
-        key=f"{base_key}_tcx",
+        key=f"{origin}_{w_id}_tcx",
     )
 
     tcx_info = None
     if tcx_file:
-        parsed = parse_tcx(tcx_file)
+        parsed = load_tcx_from_upload(tcx_file)
         if parsed:
             tcx_info = parsed
             st.success("TCX parsed")
 
+            # Auto-fill duration
+            if parsed.get("duration_sec"):
+                auto_dur = int(parsed["duration_sec"] / 60)
+                dur_key = f"{origin}_{w_id}_dur"
+                if st.session_state.get(dur_key) in [None, 0, ""]:
+                    st.session_state[dur_key] = auto_dur
+
+            # Auto-fill distance
+            if parsed.get("distance_m", 0) > 0:
+                miles = round(parsed["distance_m"] / 1609.34, 2)
+                dist_key = f"{origin}_{w_id}_dist"
+                if st.session_state.get(dist_key) in [None, "", "0"]:
+                    st.session_state[dist_key] = str(miles)
+
+            # Auto-fill HR
+            if parsed.get("avg_hr"):
+                st.session_state[f"{origin}_{w_id}_hr"] = str(int(parsed["avg_hr"]))
+            if parsed.get("max_hr"):
+                st.session_state[f"{origin}_{w_id}_maxhr"] = str(int(parsed["max_hr"]))
+
+            # Auto-fill elevation
+            if parsed.get("elevation_gain_m"):
+                st.session_state[f"{origin}_{w_id}_elev"] = str(int(parsed["elevation_gain_m"]))
+
+            # Pace display
+            if parsed.get("pace_min_per_km"):
+                pace = parsed["pace_min_per_km"]
+                st.caption(f"Pace: **{pace:.2f} min/km**")
+
+            # HR drift
+            if parsed.get("hr_drift") is not None:
+                st.caption(f"HR Drift: **{parsed['hr_drift']:.3f}**")
+
+        else:
+            st.error("Could not parse TCX (try again or upload a different file).")
+
+        if parsed:
+            tcx_info = parsed
+            st.success("TCX parsed")
+
+            # -----------------------------
+            # SAFE AUTOFILL DEFAULT VALUES
+            # -----------------------------
             # Duration (sec -> min)
+            dur_default = duration  # existing values remain unless blank
             if parsed.get("duration_sec"):
                 dur_default = int(parsed["duration_sec"] / 60)
 
             # Distance (m -> mi)
+            dist_default = distance
             if parsed.get("distance_m", 0) > 0:
                 miles = round(parsed["distance_m"] / 1609.34, 2)
                 dist_default = str(miles)
 
-            # HR fields
+            # Average HR
+            avg_default = avg_hr
             if parsed.get("avg_hr"):
                 avg_default = str(int(parsed["avg_hr"]))
+
+            # Max HR
+            max_default = max_hr
             if parsed.get("max_hr"):
                 max_default = str(int(parsed["max_hr"]))
 
             # Elevation gain
+            elev_default = elevation
             if parsed.get("elevation_gain_m"):
                 elev_default = str(int(parsed["elevation_gain_m"]))
 
-            # Pace
+            # -----------------------------
+            # DISPLAY PACE + HR ZONES
+            # -----------------------------
             pace = None
             if parsed.get("duration_sec") and parsed.get("distance_m"):
                 miles_for_pace = parsed["distance_m"] / 1609.34
                 if miles_for_pace > 0:
                     pace = (parsed["duration_sec"] / 60) / miles_for_pace
+
             if pace:
                 st.caption(f"Pace: **{pace:.2f} min/mi**")
 
-            # HR time in zones
             zones = parsed.get("time_in_zones", {})
             if zones:
                 st.markdown("**HR Time in Zones:**")
                 for z, sec in zones.items():
                     st.write(f"- {z}: {sec / 60:.1f} min")
+
+            # -----------------------------
+            # UPDATE WIDGET VALUES SAFELY
+            # (avoid Streamlit locked-state errors)
+            # -----------------------------
+            st.session_state.setdefault(f"{origin}_{w_id}_dur", dur_default)
+            st.session_state.setdefault(f"{origin}_{w_id}_dist", dist_default)
+            st.session_state.setdefault(f"{origin}_{w_id}_hr", avg_default)
+            st.session_state.setdefault(f"{origin}_{w_id}_maxhr", max_default)
+            st.session_state.setdefault(f"{origin}_{w_id}_elev", elev_default)
+
         else:
             st.error("Could not parse TCX.")
+
 
     # --------------------------
     # 3) SET SESSION STATE BEFORE WIDGETS

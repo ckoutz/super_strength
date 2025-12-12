@@ -1,0 +1,46 @@
+def render_cardio_block(origin: str, w_id: str, w: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    """
+    Full cardio log + TCX upload + auto-fill.
+
+    Behavior:
+      - Shows workout name + description + suggested duration
+      - TCX uploader appears directly under the session header
+      - TCX parse can auto-populate:
+          * duration
+          * distance
+          * avg HR
+          * max HR
+          * elevation gain
+          * pace
+          * time in zones
+      - We ONLY write to st.session_state for these keys BEFORE
+        their widgets are instantiated (to avoid StreamlitAPIException).
+    """
+    name = w.get("name", w_id)
+    st.markdown(f"**{name}**")
+
+    # Description + suggested duration
+    desc = w.get("instructions", "")
+    if desc:
+        st.markdown(f"*{desc}*")
+
+    dur_raw = w.get("duration_min", "")
+    if dur_raw:
+        st.caption(f"Suggested duration: **{dur_raw} min**")
+
+    # Load any previously saved session for this workout/origin
+    saved = find_saved_cardio_for_wid(saved_cardio, w_id, origin)
+
+    # Base defaults (before TCX)
+    default_min = default_duration_minutes(dur_raw)
+
+    # Keys for this block
+    base_key = f"{origin}_{w_id}"
+    done_key = f"{base_key}_done"
+    duration_key = f"{base_key}_dur"
+    distance_key = f"{base_key}_dist"
+    rpe_key = f"{base_key}_rpe"
+    avg_key = f"{base_key}_hr"
+    max_key = f"{base_key}_maxhr"
+    elev_key = f"{base_key}_elev"
+    notes_key = f"{base_key}_notes"
